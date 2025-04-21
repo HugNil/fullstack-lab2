@@ -4,7 +4,7 @@ import Project from "../models/project.js";
 
 const getAllProjectAssignments = async (req, res) => {
     try {
-        const assignments = await projectAssignment.find();
+        const assignments = await ProjectAssignment.find();
         if (!assignments) {
             return res.status(404).json({ message: 'No project assignments found' });
         }
