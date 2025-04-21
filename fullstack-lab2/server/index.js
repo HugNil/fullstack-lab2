@@ -3,6 +3,10 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import { connectDB } from './config/db.js'
 
+import employeeRoutes from './routes/employee_routes.js';
+import projectRoutes from './routes/project_routes.js';
+import assignmentRoutes from './routes/projectAssignment_routes.js';
+
 dotenv.config()
 
 const app = express();
@@ -13,6 +17,10 @@ connectDB();
 
 app.use(cors());
 app.use(express.json());
+
+app.use('/api/', employeeRoutes);
+app.use('/api/', projectRoutes);
+app.use('/api/', assignmentRoutes);
 
 app.get('/', (req, res) => {
   res.send('API is running...');

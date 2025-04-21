@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
-const projectSchema = new mongoose.Schema({
-  project_code: { type: String, required: true, unique: true },
-  project_name: { type: String, required: true },
-  project_description: { type: String }
+const projectAssignmentSchema = new mongoose.Schema({
+  employee_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Employees', required: true },
+  project_code: { type: mongoose.Schema.Types.ObjectId, ref: 'Projects', required: true },
+  start_date: { type: Date, required: true }
 });
 
-export default mongoose.model('Project', projectSchema);
+export default mongoose.model('Project', projectAssignmentSchema, 'ProjectAssignments');
