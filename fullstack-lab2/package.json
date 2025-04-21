@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon server/index.js",
-    "client": "cd client && npm run dev"
+    "client": "cd client && npm run dev",
+    "populate_db": "node server/config/db_sample_populate.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

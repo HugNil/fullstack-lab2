@@ -6,4 +6,4 @@ const projectAssignmentSchema = new mongoose.Schema({
   start_date: { type: Date, required: true }
 });
 
-export default mongoose.model('Project', projectAssignmentSchema, 'ProjectAssignments');
+export default mongoose.models.ProjectAssignment || mongoose.model('ProjectAssignment', projectAssignmentSchema, 'ProjectAssignments');

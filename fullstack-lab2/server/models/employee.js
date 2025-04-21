@@ -8,4 +8,4 @@ const employeeSchema = new mongoose.Schema({
 });
 
 
-export default mongoose.model('Employees', employeeSchema, 'Employees');
+export default mongoose.models.Employee || mongoose.model('Employee', employeeSchema, 'Employees');
