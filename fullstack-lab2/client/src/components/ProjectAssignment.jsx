@@ -33,18 +33,18 @@ const ProjectAssignment = () => {
               </tr>
             </thead>
             <tbody>
-              {assignments.length === 0 ? (
-                <tr><td colSpan="4">Inga assignments hittades</td></tr>
-              ) : (
-                assignments.map((assign) => (
+              {assignments.map((assign) => {
+                console.log("assign:", assign);
+
+                return (
                   <tr key={assign._id}>
                     <td>{assign.employee_id?.employee_id}</td>
                     <td>{assign.employee_id?.full_name}</td>
                     <td>{assign.project_code?.project_name}</td>
                     <td>{new Date(assign.start_date).toLocaleDateString()}</td>
                   </tr>
-                ))
-              )}
+                );
+              })}
             </tbody>
           </table>
         </div>
