@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './ProjectAssignment.css';
 
 const ProjectAssignment = () => {
     const [assignments, setAssignments] = useState([]);
