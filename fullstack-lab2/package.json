@@ -4,34 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "nodemon server/index.js",
+    "server": "cd server && npm run dev",
     "client": "cd client && npm run dev",
-    "populate_db": "node server/config/db_sample_populate.js"
-  },
-  "dependencies": {
-    "bcrypt": "^5.1.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install"
   },
   "devDependencies": {
-    "@eslint/js": "^9.22.0",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "@vitejs/plugin-react": "^4.3.4",
-    "concurrently": "^9.1.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.5.0",
-    "eslint": "^9.22.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
-    "express": "^5.1.0",
-    "globals": "^16.0.0",
-    "mongoose": "^8.13.2",
-    "nodemon": "^3.1.9",
-    "vite": "^6.3.1"
+    "concurrently": "^9.1.2"
   }
 }

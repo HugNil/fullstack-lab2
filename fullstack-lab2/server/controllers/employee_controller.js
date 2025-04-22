@@ -1,5 +1,5 @@
 import Employee from '../models/employee.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 const createEmployee = async (req, res) => {
     try {
