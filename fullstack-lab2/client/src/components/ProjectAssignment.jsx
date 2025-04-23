@@ -8,9 +8,9 @@ const ProjectAssignment = () => {
 
   const fetchAssignments = async () => {
     try {
-      const res = await fetch('http://localhost:5000/api/projectAssignment');
+      const res = await fetch('http://localhost:5000/api/projectAssignment'); // Fetches all project assignments from the server
       const data = await res.json();
-      setAssignments(data.slice(-5));
+      setAssignments(data.slice(-5)); // Sets the last 5 assignments to be displayed in the table
     } catch (error) {
       console.error('Error fetching project assignments:', error);
     }
@@ -22,10 +22,10 @@ const ProjectAssignment = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const sortedAssignments = [...assignments].sort((a, b) => {
-    let aValue, bValue;
+  const sortedAssignments = [...assignments].sort((a, b) => { // Sorts the assignments based on the selected column and direction
+    let aValue, bValue; // Variables to hold the values of the two assignments being compared
 
-    switch (sortColumn) {
+    switch (sortColumn) { // Determines which column to sort by
       case 'employee_name':
         aValue = a.employee_id?.full_name || '';
         bValue = b.employee_id?.full_name || ''; 
@@ -44,8 +44,8 @@ const ProjectAssignment = () => {
         bValue = new Date(b.start_date);
     }
 
-    if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1;
-    if (aValue > bValue) return sortDirection === 'asc' ? 1 : -1;
+    if (aValue < bValue) return sortDirection === 'asc' ? -1 : 1; // Compares the values based on the selected column and direction
+    if (aValue > bValue) return sortDirection === 'asc' ? 1 : -1; // If the values are equal, return 0
     return 0;
   });
 
