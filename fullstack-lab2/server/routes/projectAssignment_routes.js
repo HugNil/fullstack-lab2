@@ -3,7 +3,7 @@ import { getAllProjectAssignments, createProjectAssignment } from '../controller
 
 const router = express.Router();
 
-router.post('/projectAssignment', createProjectAssignment); // POST /api/project_assignments
-router.get('/projectAssignment', getAllProjectAssignments);  // GET /api/project_assignments
+router.post('/projectAssignment', createProjectAssignment); // POST to create a new project assignment
+router.get('/projectAssignment', getAllProjectAssignments); // GET to fetch all project assignments
 
 export default router;

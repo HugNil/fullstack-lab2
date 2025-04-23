@@ -5,9 +5,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Header /> {/* This component displays the header of the app */}
       <main>
-        <ProjectAssignment />
+        <ProjectAssignment /> {/* This component fetches the data from the server and displays it in a table */}
       </main>
     </div>
   );

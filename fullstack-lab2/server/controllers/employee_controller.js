@@ -3,19 +3,19 @@ import bcrypt from 'bcryptjs';
 
 const createEmployee = async (req, res) => {
     try {
-        if (!req.body) {
+        if (!req.body) { // Check if request body is empty
             return res.status(400).json({ message: 'Request body is required' });
         }
 
-        const { employee_id, full_name, email, password } = req.body;
-        if (!employee_id || !full_name || !email || !password) {
+        const { employee_id, full_name, email, password } = req.body; // Destructure the request body
+        if (!employee_id || !full_name || !email || !password) { // Check if any field is missing
             return res.status(400).json({ message: 'All fields are required' });
         }
 
-        const hashed_password = await hash_password(password);
+        const hashed_password = await hash_password(password); // Hash the password
 
-        const newEmployee = new Employee({ employee_id, full_name, email, hashed_password });
-        await newEmployee.save();
+        const newEmployee = new Employee({ employee_id, full_name, email, hashed_password }); // Create a new employee object
+        await newEmployee.save(); // Save the new employee to the database
         res.status(201).json(newEmployee);
     } catch (error) {
         console.error('Error in createEmployee:', error);
@@ -23,10 +23,10 @@ const createEmployee = async (req, res) => {
     }      
 };
 
-async function hash_password(password) {
+async function hash_password(password) { // Function to hash the password
     const saltRounds = 10;
     try {
-        return await bcrypt.hash(password, saltRounds);
+        return await bcrypt.hash(password, saltRounds); // Hash the password using bcrypt
     } catch (err) {
         console.error('Error hashing password:', err);
         throw new Error('Hashing failed');

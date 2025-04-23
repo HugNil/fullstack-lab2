@@ -20,13 +20,7 @@ table {
     background-color: #ffffff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-/* Header */
-thead {
-    background-color: #f0f0f0;
-}
+    }
 
 th {
     padding: 1rem;
